@@ -4,13 +4,13 @@
 
 ## Use
 
-### Run the application locally
+### Run the app locally
 
 `lein ring server`
 
 ### Run the tests
 
-`lein midje`
+`lein test`
 
 ### Packaging and running as standalone jar
 

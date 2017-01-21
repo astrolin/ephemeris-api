@@ -1,35 +1,20 @@
 (ns ephemeris-api.handler
-  (:require [compojure.api.sweet :refer :all]
-            [ring.util.http-response :refer :all]
-            [schema.core :as s]))
-
-(s/defschema Pizza
-  {:name s/Str
-   (s/optional-key :description) s/Str
-   :size (s/enum :L :M :S)
-   :origin {:country (s/enum :FI :PO)
-            :city s/Str}})
+  (:require [ephemeris.core :refer (calc)]
+            [compojure.api.sweet :refer :all]
+            [ring.util.http-response :refer :all]))
 
 (def app
   (api
     {:swagger
      {:ui "/"
       :spec "/swagger.json"
-      :data {:info {:title "Ephemeris-api"
-                    :description "Compojure Api example"}
-             :tags [{:name "api", :description "some apis"}]}}}
+      :data {:info {:title "Ephemeris Api"
+                    :description "For Astrology Applications"}
+             :tags [{:name "ephemeris", :description "calc"}]}}}
 
-    (context "/api" []
-      :tags ["api"]
+    (context "/" []
+      :tags ["ephemeris"]
 
-      (GET "/plus" []
-        :return {:result Long}
-        :query-params [x :- Long, y :- Long]
-        :summary "adds two numbers together"
-        (ok {:result (+ x y)}))
-
-      (POST "/echo" []
-        :return Pizza
-        :body [pizza Pizza]
-        :summary "echoes a Pizza"
-        (ok pizza)))))
+      (GET "/utc" []
+        :summary "points at the universal moment"
+        (ok (calc))))))
