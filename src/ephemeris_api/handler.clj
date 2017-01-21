@@ -17,4 +17,4 @@
 
       (GET "/utc" []
         :summary "points at the universal moment"
-        (ok (calc))))))
+        (ok (calc {:angles [] :houses false}))))))
