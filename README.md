@@ -1,8 +1,8 @@
 # ephemeris-api
 
-FIXME
+> Ephemeris HTTP API
 
-## Usage
+## Use
 
 ### Run the application locally
 
@@ -25,4 +25,8 @@ java -jar target/server.jar
 
 ## License
 
-Copyright ©  FIXME
+[Unlicensed](http://unlicense.org) free and unencumbered public domain software.
+
+[Ephemeris LICENSE](https://github.com/astrolet/ephemeris/blob/active/LICENSE)
+applies in order to use the api - which currently means:
+[Swiss Ephemeris License](http://www.astro.com/swisseph).
