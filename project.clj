@@ -2,7 +2,7 @@
   :description "Ephemeris HTTP API"
   :min-lein-version  "2.0.0"
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [ephemeris "0.0.1-SNAPSHOT"]
+                 [ephemeris "0.0.1"]
                  [metosin/compojure-api "1.1.10"]]
   :ring {:handler ephemeris-api.handler/app}
   :profiles
