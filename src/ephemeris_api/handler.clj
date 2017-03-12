@@ -10,7 +10,10 @@
       :spec "/swagger.json"
       :data {:info {:title "Ephemeris Api"
                     :description "For Astrology Applications"}
-             :tags [{:name "ephemeris", :description "calc"}]}}}
+             :tags [{:name "ephemeris"
+                     :description "calc"
+                     :externalDocs {:description "Find out more"
+                                    :url         "http://swagger.io"}}]}}}
 
     (context "/" []
       :tags ["ephemeris"]
