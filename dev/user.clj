@@ -3,7 +3,7 @@
 
 (def refresh repl/refresh)
 
-(defn dev []
+(defn dev-main []
   (require 'dev)
   (in-ns 'dev)
-  #_ (dev/-main))
+  (dev/-main))

@@ -11,13 +11,13 @@ Source code will be auto-reloaded upon changes for easier dev,
 thanks to [ns-tracker](https://github.com/weavejester/ns-tracker).
 
 ```clojure
-user> (dev)
-dev> (-main)
+;; user ns
+(dev-main)
 ```
 
 ### Standalone Package
 
-```
+```sh
 lein do clean, uberjar
 java -Dnomad.env=dev -jar target/uberjar/server.jar
 ```
