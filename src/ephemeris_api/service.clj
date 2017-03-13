@@ -39,9 +39,9 @@
                          (api/negotiate-response)
                          (api/body-params)
                          api/common-body
-                         (api/coerce-request)]
-                         ;;(api/validate-response)]
-     ["/ephemeris" ^:interceptors [(api/doc {:tags ["ephemeris"]})]
+                         (api/coerce-request)
+                         (api/validate-response)]
+     ["/api" ^:interceptors [(api/doc {:tags ["ephemeris"]})]
       ["/utc" {:get mundane}]]]
     ["/swagger.json" {:get api/swagger-json}]
     ["/*resource" {:get api/swagger-ui}]]])
