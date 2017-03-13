@@ -13,27 +13,24 @@
                        :sdd s/Num}}})
 
 (def mundane
-  (api/annotate
-   {:summary     "Get the current mundane planetary positions"
-    :responses   {200 {:body Points}}}
-   (interceptor
-    {:name  ::mundane
-     :enter (fn [ctx]
-              (assoc ctx :response
-                     {:status 200
-                      :body (calc {:angles []
-                                   :houses false
-                                   :meta false})}))})))
+  (helps/handler ::mundane
+   {:summary   "Get the current mundane planetary positions"
+    :responses {200 {:body Points}}}
+   (fn [request]
+     {:status 200
+      :body (calc {:angles []
+                   :houses false
+                   :meta false})})))
 
-;;(s/with-fn-validation)
+;;(s/with-fn-validation) ;; Optional, but nice to have at compile time
 (api/defroutes routes
   {:info {:title       "Ephemeris Api"
           :description "For Astrology Applications"
           :version     "0.1"}
    :tags [{:name         "ephemeris"
-           :description  "calc"
+           :description  "calculate"
            :externalDocs {:description "Find out more"
-                          :url         "http://swagger.io"}}]}
+                          :url         "https://github.com/astrolet/ephemeris-api"}}]}
   [[["/" ^:interceptors [api/error-responses
                          (api/negotiate-response)
                          (api/body-params)
