@@ -25,7 +25,7 @@
            :plugins [[lein-ring "0.10.0"]
                      [lein-midje "3.2"]]
            :repl-options {:timeout 90000 ;; 90 seconds
-                          :init-ns user}}
+                          :init-ns dev}}
      :repl
        {:ultra {:repl {:sort-keys false
                        :map-coll-separator :line}}}

@@ -10,9 +10,10 @@ Start `lein repl`, load the `dev` namespace, and call `-main`.
 Source code will be auto-reloaded upon changes for easier dev,
 thanks to [ns-tracker](https://github.com/weavejester/ns-tracker).
 
+Running `lein repl` will take you to `ns dev` by default -- then:
+
 ```clojure
-;; user ns
-(dev-main)
+(-main)
 ```
 
 ### Standalone Package
