@@ -1,6 +1,5 @@
 (ns ephemeris-api.service
   (:require [io.pedestal.http :as bootstrap]
-            [io.pedestal.http.route :as route]
             [io.pedestal.interceptor :refer [interceptor]]
             [pedestal-api
              [core :as api]
