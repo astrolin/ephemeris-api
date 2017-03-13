@@ -1,9 +1,9 @@
 (ns ephemeris-api.service
   (:require [io.pedestal.http :as bootstrap]
             [io.pedestal.interceptor :refer [interceptor]]
+            [io.pedestal.interceptor.helpers :refer [before handler]]
             [pedestal-api
-             [core :as api]
-             [helpers :as helps]]
+             [core :as api]]
             [schema.core :as s]
             [ephemeris.core :refer (calc)]))
 
@@ -13,14 +13,15 @@
                        :sdd s/Num}}})
 
 (def mundane
-  (helps/handler ::mundane
+  (api/annotate
    {:summary   "Get the current mundane planetary positions"
     :responses {200 {:body Points}}}
-   (fn [request]
-     {:status 200
-      :body (calc {:angles []
-                   :houses false
-                   :meta false})})))
+   (handler ::mundane
+     (fn [request]
+       {:status 200
+        :body (calc {:angles []
+                     :houses false
+                     :meta false})}))))
 
 ;; (s/with-fn-validation) ;; Optional, but nice to have at compile time
 (api/defroutes routes

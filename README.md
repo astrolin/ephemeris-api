@@ -7,7 +7,8 @@
 ### Development
 
 Start `lein repl`, load the `dev` namespace, and call `-main`.
-Source code will be auto-reloaded upon changes for easier dev.
+Source code will be auto-reloaded upon changes for easier dev,
+thanks to [ns-tracker](https://github.com/weavejester/ns-tracker).
 
 ```clojure
 user> (dev)
