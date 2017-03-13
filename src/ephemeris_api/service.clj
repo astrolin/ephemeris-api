@@ -47,13 +47,8 @@
     ["/*resource" {:get api/swagger-ui}]]])
 
 (def service
-  {:env                      :prod
-   ;; Routes can be a function that resolves routes,
-   ;; we can use this to make the routes reloadable
-   ::bootstrap/routes        #(deref #'routes)
-   ;; linear-search, and declaring the swagger-ui handler last in the routes,
-   ;; is important to avoid the splat param for the UI matching API routes
-   ::bootstrap/router        :linear-search
+  {:env :prod
+   ::bootstrap/routes routes
+   ::bootstrap/router :linear-search
    ::bootstrap/resource-path "/public"
-   ::bootstrap/type          :jetty
-   ::bootstrap/port          8081})
+   ::bootstrap/type :jetty})
