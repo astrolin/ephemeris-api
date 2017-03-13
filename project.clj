@@ -3,7 +3,6 @@
   :min-lein-version  "2.0.0"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ephemeris "0.0.1"]
-                 [metosin/compojure-api "1.1.10"]
                  [pedestal-api "0.3.1"]
                  [io.pedestal/pedestal.service "0.5.2"]
                  [io.pedestal/pedestal.jetty "0.5.2"]
@@ -14,13 +13,12 @@
                  [org.clojure/tools.logging "0.3.1"]
                  [ns-tracker "0.3.1"]
                  [jarohen/nomad "0.7.3"]]
-  :ring {:handler ephemeris-api.handler/app}
+  :source-paths ["src"]
+  :resource-paths ["resources"]
   :profiles
     {:dev {:source-paths ["dev" "src"]
            :jvm-opts ["-Dnomad.env=dev"]
-           :dependencies [[javax.servlet/javax.servlet-api "3.1.0"]
-                          [cheshire "5.5.0"]
-                          [ring/ring-mock "0.3.0"]
+           :dependencies [[cheshire "5.5.0"]
                           [proto-repl "0.3.1"]
                           [midje "1.8.3"]
                           [midje-notifier "0.2.0"]]
