@@ -1,0 +1,3 @@
+{:nomad/environments
+ {"dev"
+  {:http {:port 8081}}}}

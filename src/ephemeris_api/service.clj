@@ -1,6 +1,5 @@
 (ns ephemeris-api.service
   (:require [io.pedestal.http :as bootstrap]
-            [io.pedestal.http.route :as route]
             [io.pedestal.interceptor :refer [interceptor]]
             [pedestal-api
              [core :as api]
@@ -39,21 +38,16 @@
                          (api/negotiate-response)
                          (api/body-params)
                          api/common-body
-                         (api/coerce-request)]
-                         ;;(api/validate-response)]
-     ["/ephemeris" ^:interceptors [(api/doc {:tags ["ephemeris"]})]
+                         (api/coerce-request)
+                         (api/validate-response)]
+     ["/api" ^:interceptors [(api/doc {:tags ["ephemeris"]})]
       ["/utc" {:get mundane}]]]
     ["/swagger.json" {:get api/swagger-json}]
     ["/*resource" {:get api/swagger-ui}]]])
 
 (def service
-  {:env                      :prod
-   ;; Routes can be a function that resolves routes,
-   ;; we can use this to make the routes reloadable
-   ::bootstrap/routes        #(deref #'routes)
-   ;; linear-search, and declaring the swagger-ui handler last in the routes,
-   ;; is important to avoid the splat param for the UI matching API routes
-   ::bootstrap/router        :linear-search
+  {:env :prod
+   ::bootstrap/routes routes
+   ::bootstrap/router :linear-search
    ::bootstrap/resource-path "/public"
-   ::bootstrap/type          :jetty
-   ::bootstrap/port          8081})
+   ::bootstrap/type :jetty})
