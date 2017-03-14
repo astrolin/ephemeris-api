@@ -1,5 +1,7 @@
 {:nomad/environments
   {"dev"
-    {:http {:port 8081}}
+    {:http {:host "localhost"
+            :port 8081}}
    "prod"
-    {:http {:port 8080}}}}
+    {:http {:host "0.0.0.0"
+            :port 8080}}}}

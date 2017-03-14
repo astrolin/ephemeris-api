@@ -24,7 +24,7 @@
                           [midje-notifier "0.2.0"]]
            :plugins [[lein-ring "0.10.0"]
                      [lein-midje "3.2"]]
-           :repl-options {:timeout 90000 ;; 90 seconds
+           :repl-options {:timeout 150000 ;; 2 & 1/2 minutes
                           :init-ns dev}}
      :repl
        {:ultra {:repl {:sort-keys false

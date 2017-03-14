@@ -16,6 +16,7 @@
     (constantly
      (bootstrap/create-server
       (-> (merge service/service
+            {::bootstrap/host (get-in (config) [:http :host])}
             {::bootstrap/port (get-in (config) [:http :port])}
             pedestal-opts)
           (bootstrap/default-interceptors)))))))
