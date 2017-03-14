@@ -1,6 +1,5 @@
 (ns ephemeris-api.core-test
-  (:require [cheshire.core :as cheshire]
-            [midje.sweet :refer :all]))
+  (:require [midje.sweet :refer :all]))
 
 (facts "Core"
   (fact "TODO: test"

@@ -1,6 +1,6 @@
 (defproject ephemeris-api "0.0.1-SNAPSHOT"
   :description "Ephemeris HTTP API"
-  :min-lein-version  "2.0.0"
+  :min-lein-version  "2.4.0" ;; due to lein-immutant
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ephemeris "0.0.1"]
                  [pedestal-api "0.3.1"]
@@ -12,29 +12,35 @@
                  [org.slf4j/jcl-over-slf4j "1.7.22"]
                  [org.slf4j/log4j-over-slf4j "1.7.22"]
                  [org.clojure/tools.logging "0.3.1"]
-                 [ns-tracker "0.3.1"]
                  [jarohen/nomad "0.7.3"]]
   :source-paths ["src"]
   :resource-paths ["resources"]
   :profiles
     {:dev {:source-paths ["dev" "src"]
            :jvm-opts ["-Dnomad.env=dev"]
-           :dependencies [[cheshire "5.5.0"]
+           :dependencies [[ns-tracker "0.3.1"]
                           [proto-repl "0.3.1"]
                           [midje "1.8.3"]
                           [midje-notifier "0.2.0"]]
-           :plugins [[lein-ring "0.10.0"]
-                     [lein-midje "3.2"]]
+           :plugins [[lein-midje "3.2"]
+                     [lein-immutant "2.1.0"]]
+           :immutant {:nrepl-port 0
+                      :nrepl-interface :management}
            :repl-options {:timeout 150000 ;; 2 & 1/2 minutes
                           :init-ns dev}}
      :repl
        {:ultra {:repl {:sort-keys false
                        :map-coll-separator :line}}}
      :uberjar {:aot :all}}
+  :immutant {:init pedestal-immutant.server/initialize
+             :resolve-dependencies true
+             :context-path "/"
+             :war {:name "ephemeris-api"}}
   :aliases {"test" ["midje"]
-            "autotest" ["midje" ":autotest"]}
+            "autotest" ["midje" ":autotest"]
+            "uberwar" ["immutant" "war"]}
   :main ^:skip-aot ephemeris-api.server
-  :target-path "target/%s"
+  :target-path "target/"
   :pom-location "target/"
   :uberjar-name "server.jar"
   :deploy-branches ["master"])
