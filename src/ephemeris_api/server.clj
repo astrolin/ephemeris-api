@@ -16,6 +16,9 @@
     (constantly
      (bootstrap/create-server
       (-> (merge service/service
+            ;; configurable pedestal adapter :type with a default
+            ;; only jetty & immutant are made available (as deps)
+            {::bootstrap/type (get (config) :type :immutant)}
             {::bootstrap/host (get-in (config) [:http :host])}
             {::bootstrap/port (get-in (config) [:http :port])}
             pedestal-opts)

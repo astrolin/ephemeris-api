@@ -1,7 +1,9 @@
 {:nomad/environments
   {"dev"
-    {:http {:host "localhost"
+    {:type :jetty
+     :http {:host "localhost"
             :port 8081}}
    "prod"
-    {:http {:host "0.0.0.0"
+    {:type :immutant
+     :http {:host "0.0.0.0"
             :port 8080}}}}

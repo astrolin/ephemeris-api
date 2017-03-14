@@ -44,5 +44,4 @@
   {:env :prod
    ::bootstrap/routes routes
    ::bootstrap/router :linear-search
-   ::bootstrap/resource-path "/public"
-   ::bootstrap/type :jetty})
+   ::bootstrap/resource-path "/public"})
