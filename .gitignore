@@ -4,6 +4,8 @@
 *.log
 *.pid
 
+/logs
+
 pom.xml*
 *.jar
 /lib/
@@ -11,11 +13,13 @@ pom.xml*
 /classes/
 /checkouts/
 
+.lein-*
 .lein-env
 .lein-plugins
 .lein-deps-sum
 .lein-failures
 .lein-repl-history
 
+.nrepl-*
 .nrepl-port
 .nrepl-history

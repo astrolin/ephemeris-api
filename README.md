@@ -4,24 +4,24 @@
 
 ## Use
 
-### Run the application locally
+### Development
 
-`lein ring server`
+Start `lein repl`, load the `dev` namespace, and call `-main`.
+Source code will be auto-reloaded upon changes for easier dev,
+thanks to [ns-tracker](https://github.com/weavejester/ns-tracker).
 
-### Run the tests
+Running `lein repl` will take you to `ns dev` by default -- then:
 
-`lein midje`
-
-### Packaging and running as standalone jar
-
-```
-lein do clean, ring uberjar
-java -jar target/server.jar
+```clojure
+(-main)
 ```
 
-### Packaging as war
+### Standalone Package
 
-`lein ring uberwar`
+```sh
+lein do clean, uberjar
+java -Dnomad.env=dev -jar target/uberjar/server.jar
+```
 
 ## License
 
