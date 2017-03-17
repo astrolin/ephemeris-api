@@ -26,7 +26,7 @@ Running `lein repl` will take you to `ns dev` by default -- then:
 
 ```sh
 lein do clean, uberjar
-java -Dnomad.env=dev -jar target/uberjar/server.jar
+java -Dnomad.env=prod -jar target/server.jar
 ```
 
 ## License

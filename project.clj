@@ -31,7 +31,7 @@
      :repl
        {:ultra {:repl {:sort-keys false
                        :map-coll-separator :line}}}
-     :uberjar {:aot :all}}
+     :uberjar {:main ephemeris-api.server :aot :all}}
   :immutant {:init pedestal-immutant.server/initialize
              :resolve-dependencies true
              :context-path "/"
