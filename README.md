@@ -2,7 +2,7 @@
 
 > Ephemeris HTTP API
 
-This `ephemeris-api` provides [ephemeris](https://github.com/astrolet/ephemeris) functionality, over the HTTP protocol, as a web service.  It is powered by [Pedestal](http://pedestal.io), including adaptors for [Jetty](http://www.eclipse.org/jetty) and [Immutant](http://immutant.org).  Pedestal enables a "huge variety" of deployment possibilities, not all of which documented here.
+This `ephemeris-api` provides [ephemeris](https://github.com/astrolet/ephemeris) functionality, over the HTTP protocol, as a web service.  It is powered by [Pedestal](http://pedestal.io), including adaptors for [Jetty](http://www.eclipse.org/jetty) and [Immutant](http://immutant.org).  Pedestal enables a "huge variety" of deployment possibilities, not all of which enabled or documented.
 
 ## Rationale
 
@@ -11,6 +11,8 @@ For the purpose of decoupling astrology applications from ephemeris code.  There
 ## Use
 
 ### Development
+
+Java 8 and [Leiningen](https://leiningen.org) 2.4 or greater are prerequisites.
 
 Start `lein repl`, load the `dev` namespace, and call `-main`.
 Source code will be auto-reloaded upon changes for easier dev,
@@ -28,6 +30,19 @@ Running `lein repl` will take you to `ns dev` by default -- then:
 lein do clean, uberjar
 java -Dnomad.env=prod -jar target/server.jar
 ```
+
+### Cofiguration
+
+There are [nomad](https://github.com/jarohen/nomad) defaults pre-configured per environment in `resources/config.edn` that can be overridden in a number of ways.  Currently either through environment variables or Java system properties.  For example the following two commands will do the same:
+
+- $ `EPHEMERIS_API_PORT=3000 java -jar target/server.jar`
+- $ `java -Dephemeris.api.port=3000 -jar target/server.jar`
+
+If you use both approaches together, e.g. `EPHEMERIS_API_PORT=8080 java -Dephemeris.api.port=8081 -jar target/server.jar`, then the second one wins and the port would be `8081`.  See [environ](https://github.com/weavejester/environ#readme)’s docs for more.  The following vars will be used if provided:
+
+* `EPHEMERIS_API_TYPE` = `jetty` or `immutant`
+* `EPHEMERIS_API_HOST`
+* `EPHEMERIS_API_PORT`
 
 ## License
 
