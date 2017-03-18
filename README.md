@@ -2,7 +2,7 @@
 
 > Ephemeris HTTP API
 
-This `ephemeris-api` provides [ephemeris](https://github.com/astrolet/ephemeris) functionality, over the HTTP protocol, as a web service.  It is powered by [Pedestal](http://pedestal.io), including adaptors for [Jetty](http://www.eclipse.org/jetty) and [Immutant](http://immutant.org).  Pedestal enables a "huge variety" of deployment possibilities, not all of which enabled or documented here.
+This `ephemeris-api` provides [ephemeris](https://github.com/astrolet/ephemeris) functionality, over the HTTP protocol, as a web service.  It is powered by [Pedestal](http://pedestal.io), including adaptors for [Jetty](http://www.eclipse.org/jetty) and [Immutant](http://immutant.org).  Pedestal enables a "huge variety" of deployment possibilities, not all of which enabled or documented here.  Thanks also go to [pedestal-api](https://github.com/oliyh/pedestal-api) for making it simple and easy.
 
 ## Rationale
 
