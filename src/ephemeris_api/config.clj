@@ -5,5 +5,14 @@
 
 (defconfig base (io/resource "config.edn"))
 
+(defn configurable [keys val associable]
+  (if (nil? val)
+    associable
+    (assoc-in associable keys val)))
+
 (defn config []
-  (assoc-in (base) [:http :port] (env :ephemeris-api-port)))
+  (->> (base)
+    (configurable [:type]
+                  (keyword (env :ephemeris-api-type)))
+    (configurable [:http :host] (env :ephemeris-api-host))
+    (configurable [:http :port] (env :ephemeris-api-port))))
