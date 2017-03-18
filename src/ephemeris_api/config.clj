@@ -15,4 +15,5 @@
     (configurable [:type]
                   (keyword (env :ephemeris-api-type)))
     (configurable [:http :host] (env :ephemeris-api-host))
-    (configurable [:http :port] (env :ephemeris-api-port))))
+    (configurable [:http :port]
+                  (Integer. (env :ephemeris-api-port)))))
