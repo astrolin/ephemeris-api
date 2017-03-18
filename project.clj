@@ -12,7 +12,8 @@
                  [org.slf4j/jcl-over-slf4j "1.7.22"]
                  [org.slf4j/log4j-over-slf4j "1.7.22"]
                  [org.clojure/tools.logging "0.3.1"]
-                 [jarohen/nomad "0.7.3"]]
+                 [jarohen/nomad "0.7.3"]
+                 [environ "1.1.0"]]
   :source-paths ["src"]
   :resource-paths ["resources"]
   :profiles

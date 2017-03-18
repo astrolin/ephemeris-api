@@ -1,1 +1,1 @@
-web: java -Dnomad.env=prod -Dserver.port=$PORT -jar target/server.jar
+web: java -Dnomad.env=prod -Dephemeris.api.port=$PORT -jar target/server.jar
