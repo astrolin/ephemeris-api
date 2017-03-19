@@ -18,9 +18,12 @@
 (defn- to-int [s] (Integer. s))
 
 (defn config []
-  (->> (base)
+  (->> (merge {:base "/api"} (base))
     (configurable [:type]
                   (nna (env :ephemeris-api-type) keyword))
-    (configurable [:http :host] (env :ephemeris-api-host))
+    (configurable [:http :host]
+                  (env :ephemeris-api-host))
     (configurable [:http :port]
-                  (nna (env :ephemeris-api-port) to-int))))
+                  (nna (env :ephemeris-api-port) to-int))
+    (configurable [:base]
+                  (env :ephemeris-api-base))))

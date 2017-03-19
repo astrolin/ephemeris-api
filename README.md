@@ -49,6 +49,7 @@ The following vars will be used if provided:
 * `EPHEMERIS_API_TYPE` = `jetty` or `immutant`
 * `EPHEMERIS_API_HOST`
 * `EPHEMERIS_API_PORT`
+* `EPHEMERIS_API_BASE` the path where the api is served, e.g. `/`
 
 ## License
 
