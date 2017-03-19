@@ -39,10 +39,12 @@ java -Dnomad.env=prod -jar target/server.jar
 
 There are [nomad](https://github.com/jarohen/nomad) defaults pre-configured per environment in `resources/config.edn` that can be overridden in a number of ways.  Currently either through environment variables or Java system properties.  For example the following two commands will do the same:
 
-- `EPHEMERIS_API_PORT=3000 java -jar target/server.jar`
-- `java -Dephemeris.api.port=3000 -jar target/server.jar`
+- `  EPHEMERIS_API_PORT=8080 java -jar target/server.jar`
+- `java -Dephemeris.api.port=8080 -jar target/server.jar`
 
-If you use both approaches together, e.g. `EPHEMERIS_API_PORT=8080 java -Dephemeris.api.port=8081 -jar target/server.jar`, then the second one wins and the port would be `8081`.  See [environ](https://github.com/weavejester/environ#readme)’s docs for more.  The following vars will be used if provided:
+If you use both approaches together, e.g. `EPHEMERIS_API_PORT=8080 java -Dephemeris.api.port=8081 -jar target/server.jar`, then the second one wins and the port would be `8081`.  See [environ](https://github.com/weavejester/environ#readme)’s documentation for more info / possibilities.
+
+The following vars will be used if provided:
 
 * `EPHEMERIS_API_TYPE` = `jetty` or `immutant`
 * `EPHEMERIS_API_HOST`
