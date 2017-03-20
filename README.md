@@ -51,6 +51,18 @@ The following vars will be used if provided:
 * `EPHEMERIS_API_PORT`
 * `EPHEMERIS_API_BASE` the path where the api is served, e.g. `/`
 
+## Deploy
+
+There are many ways you can deploy the api.
+
+### Heroku
+
+Host your own Ephemeris API server for **FREE** on [Heroku](https://heroku.com) with [One-Click Deploy](https://heroku.com/deploy).
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/astrolin/ephemeris/tree/master)
+
+Already on Heroku at [ephemeris.herokuapp.com](https://ephemeris.herokuapp.com) with a free instance that's only good for demo purposes.
+
 ## License
 
 [Unlicensed](http://unlicense.org) free and unencumbered public domain software.

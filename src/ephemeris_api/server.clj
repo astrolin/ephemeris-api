@@ -7,6 +7,8 @@
 
 (defonce service-instance nil)
 
+(def cfg (config))
+
 (defn create-server
   "Standalone dev/prod mode."
   ([] (create-server {}))
@@ -18,9 +20,9 @@
       (-> (merge service/service
             ;; configurable pedestal adapter :type with a default
             ;; only jetty & immutant are made available (as deps)
-            {::bootstrap/type (get (config) :type :immutant)}
-            {::bootstrap/host (get-in (config) [:http :host])}
-            {::bootstrap/port (get-in (config) [:http :port])}
+            {::bootstrap/type (get cfg :type :immutant)}
+            {::bootstrap/host (get-in cfg [:http :host])}
+            {::bootstrap/port (get-in cfg [:http :port])}
             pedestal-opts)
           (bootstrap/default-interceptors)))))))
 
