@@ -57,9 +57,9 @@ There are many ways you can deploy the api.
 
 ### Heroku
 
-Host your own Ephemeris API server for **FREE** on [Heroku](https://heroku.com) with [One-Click Deploy](https://heroku.com/deploy).
+Host your own Ephemeris API server for **FREE** on [Heroku](https://heroku.com) with [One-Click Deploy](https://heroku.com/deploy?template=https://github.com/astrolin/ephemeris-api/tree/master).
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/astrolin/ephemeris/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/astrolin/ephemeris-api/tree/master)
 
 Already on Heroku at [ephemeris.herokuapp.com](https://ephemeris.herokuapp.com) with a free instance that's only good for demo purposes.
 
