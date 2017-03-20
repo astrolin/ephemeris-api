@@ -1,6 +1,8 @@
 (ns ephemeris-api.service
   (:require [io.pedestal.http :as bootstrap]
+            [io.pedestal.interceptor :refer [interceptor]]
             [io.pedestal.interceptor.helpers :refer [before handler]]
+            [ring.util.response :refer [response not-found created resource-response content-type status redirect]]
             [schema.core :as s]
             [pedestal-api.core :as api]
             [ephemeris-api.config :refer [config]]
@@ -15,7 +17,7 @@
 
 (def mundane
   (api/annotate
-   {:summary   "Get the current mundane planetary positions"
+   {:summary   "Get the current mundane planetary positions."
     :responses {200 {:body Points}}}
    (handler ::mundane
      (fn [request]
@@ -24,13 +26,14 @@
                      :houses false
                      :meta false})}))))
 
-;; (s/with-fn-validation) ;; Optional, but nice to have at compile time
+;; (s/with-fn-validation ;; Optional, but nice to have at compile time
 (api/defroutes routes
-  {:info {:title       "Ephemeris Api"
+  {:info {:title       "Ephemeris API"
           :description "For Astrology Applications"
           :version     "0.1"
           :externalDocs {:description "Find out more"
-                         :url         "https://github.com/astrolet/ephemeris-api"}}}
+                         :url         "https://github.com/astrolet/ephemeris-api"}}
+   :basePath "/"}
   [[[(get cfg :base) ^:interceptors
             [api/error-responses
              (api/negotiate-response)
@@ -39,11 +42,13 @@
              (api/coerce-request)
              (api/validate-response)]
       ["/now" {:get mundane}]
-      ["/swagger.json" {:get api/swagger-json}]
-      ["/*resource" {:get api/swagger-ui}]]]])
+      ["/swagger.json" {:get [api/swagger-json]}]
+      ["/*resource" {:get [api/swagger-ui]}]]]])
 
 (def service
   {:env :prod
    ::bootstrap/routes routes
    ::bootstrap/router :linear-search
-   ::bootstrap/resource-path "/public"})
+   ::bootstrap/resource-path "/public"
+   ::bootstrap/secure-headers {:content-security-policy-settings
+                               {:script-src "'self' 'unsafe-inline' 'unsafe-eval'"}}})
