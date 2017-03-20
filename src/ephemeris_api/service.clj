@@ -6,6 +6,8 @@
             [ephemeris-api.config :refer [config]]
             [ephemeris.core :refer (calc)]))
 
+(def cfg (config))
+
 (s/defschema Points
   {:points {s/Keyword {:lon s/Num
                        :lat s/Num
@@ -29,7 +31,7 @@
           :version     "0.1"
           :externalDocs {:description "Find out more"
                          :url         "https://github.com/astrolet/ephemeris-api"}}}
-  [[[(get (config) :base) ^:interceptors
+  [[[(get cfg :base) ^:interceptors
             [api/error-responses
              (api/negotiate-response)
              (api/body-params)
