@@ -30,9 +30,9 @@
 (api/defroutes routes
   {:info {:title       "Ephemeris API"
           :description "For Astrology Applications"
-          :version     "0.1"
-          :externalDocs {:description "Find out more"
-                         :url         "https://github.com/astrolet/ephemeris-api"}}
+          :version     "0.1"}
+   :externalDocs {:description "Find out more"
+                  :url         "https://github.com/astrolet/ephemeris-api"}
    :basePath "/"}
   [[[(get cfg :base) ^:interceptors
             [api/error-responses
