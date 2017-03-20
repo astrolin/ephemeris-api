@@ -3,11 +3,5 @@
   "description": "Host Your Own Ephemeris API",
   "repository": "https://github.com/astrolin/ephemeris-api",
   "keywords": ["astrology", "ephemeris", "api"],
-  "website": "https://github.com/astrolin",
-  "env": {
-    "HEROKU_APP_NAME": {
-      "description": "Please enter an App Name for your API",
-      "required": true
-    }
-  }
+  "website": "https://github.com/astrolin"
 }
