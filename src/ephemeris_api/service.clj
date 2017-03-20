@@ -31,8 +31,8 @@
   {:info {:title       "Ephemeris API"
           :description "For Astrology Applications"
           :version     "0.1"}
-   :externalDocs {:description "Find out more"
-                  :url         "https://github.com/astrolet/ephemeris-api"}
+   :externalDocs {:description "Automatically deployed from the master branch on GitHub. Make it your own. Unlicensed Open Source. Follow the link for more info."
+                  :url         "https://github.com/astrolin/ephemeris-api"}
    :basePath "/"}
   [[[(get cfg :base) ^:interceptors
             [api/error-responses
