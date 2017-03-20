@@ -53,7 +53,7 @@ The following vars will be used if provided:
 
 ## Deploy
 
-There are many ways you can deploy the api.
+There are many ways you can deploy the api...
 
 ### Heroku
 
