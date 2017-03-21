@@ -46,10 +46,11 @@ If you use both approaches together, e.g. `EPHEMERIS_API_PORT=8080 java -Depheme
 
 The following vars will be used if provided:
 
+* `EPHEMERIS_API_EVER` can make api version be different from `project.clj`'s
+* `EPHEMERIS_API_BASE` the path where the api is served, e.g. `/`
 * `EPHEMERIS_API_TYPE` = `jetty` or `immutant`
 * `EPHEMERIS_API_HOST`
 * `EPHEMERIS_API_PORT`
-* `EPHEMERIS_API_BASE` the path where the api is served, e.g. `/`
 
 ## Deploy
 

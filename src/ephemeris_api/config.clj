@@ -4,6 +4,13 @@
             [environ.core :refer [env]]))
 
 (defconfig base (io/resource "config.edn"))
+(->> "project.clj"
+     slurp
+     read-string
+     (drop 2)
+     (cons :version)
+     (apply hash-map)
+     (def project))
 
 (defn- configurable [keys val associable]
   (if (nil? val)
@@ -24,12 +31,13 @@
       (get (base) :type)
       override)))
 
-(defn lein-env [keys]
-  (into {} (map #(hash-map % (env %)) keys)))
+(defn lein-env []
+  (let [keys (keys (get project :env []))]
+    (into {} (map #(hash-map % (env %)) keys))))
 
 (defn config []
   (->> (merge (base) ;; per-environment vars
-              (lein-env [:ever :base])
+              (lein-env) ;; project.clj :env with environ overrides
               {:type (dadapt)})
     (configurable [:http :host]
                   (env :ephemeris-api-host))
