@@ -14,6 +14,9 @@
                  [org.clojure/tools.logging "0.3.1"]
                  [jarohen/nomad "0.7.3"]
                  [environ "1.1.0"]]
+  :plugins [[lein-environ "1.1.0"]]
+  :env {:ever :project/version ;; ephemeris-api v[ersion]
+        :base "/api"}
   :source-paths ["src"]
   :resource-paths ["resources"]
   :profiles
