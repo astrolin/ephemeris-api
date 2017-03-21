@@ -14,6 +14,8 @@ Before you go on, keep in mind there isn’t much here yet.  The `ephemeris` tha
 
 ## Use
 
+Try the demo at [api.astrolin.org](http://api.astrolin.org)/.
+
 ### Development
 
 Java 8 and [Leiningen](https://leiningen.org) 2.4 or greater are prerequisites.
@@ -54,7 +56,7 @@ The following vars will be used if provided:
 
 ## Deploy
 
-There are many ways you can deploy the api...
+There are many ways one can deploy the api...
 
 ### Heroku
 
