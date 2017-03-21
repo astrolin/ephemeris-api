@@ -24,10 +24,12 @@
       (get (base) :type)
       override)))
 
+(defn lein-env [keys]
+  (into {} (map #(hash-map % (env %)) keys)))
+
 (defn config []
-  (->> (merge {:base "/api"} ;; hardcoded defaults
-              {:ever (env :ever)} ;; from project.clj :env
-              (base) ;; per-environment
+  (->> (merge (base) ;; per-environment vars
+              (lein-env [:ever :base])
               {:type (dadapt)})
     (configurable [:http :host]
                   (env :ephemeris-api-host))
