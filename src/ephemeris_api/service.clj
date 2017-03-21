@@ -30,7 +30,7 @@
 (api/defroutes routes
   {:info {:title       "Ephemeris API"
           :description "For Astrology Applications"
-          :version     "0.1"}
+          :version     (get cfg :ever)}
    :externalDocs {:description "Automatically deployed from the master branch on GitHub. Make it your own. Unlicensed Open Source. Follow the link for more info..."
                   :url         "https://github.com/astrolin/ephemeris-api"}
    :basePath "/"}

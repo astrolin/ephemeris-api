@@ -25,8 +25,9 @@
       override)))
 
 (defn config []
-  (->> (merge {:base "/api"} ;; the hardcoded defaults
-              (base) ;; the per-environment configured
+  (->> (merge {:base "/api"} ;; hardcoded defaults
+              {:ever (env :ever)} ;; from project.clj :env
+              (base) ;; per-environment
               {:type (dadapt)})
     (configurable [:http :host]
                   (env :ephemeris-api-host))
