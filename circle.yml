@@ -14,5 +14,7 @@ deployment:
     branch: active
     heroku:
       appname: ephemeris
+  prod:
+    branch: active
     commands:
       - cf push
