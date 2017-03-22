@@ -5,9 +5,9 @@ dependencies:
     - cf -v
 test:
   post:
-    - cf api https://api.ng.bluemix.net
+    - cf api https://api.eu-gb.bluemix.net
     - cf auth $BLUEMIX_USER $BLUEMIX_PASSWORD
-    - cf target -o $BLUEMIX_USER -s dev
+    - cf target -o Astrolin -s ephemeris
     - cf a
 deployment:
   stage:
