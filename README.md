@@ -75,7 +75,7 @@ You may need a slightly different [manifest](https://github.com/astrolin/ephemer
 
 ### OpenShift
 
-[OpenShift Origin](https://www.openshift.org) is interesting for its [WildFly](http://wildfly.org) offering, which is especially well-suited for [Immutant](http://immutant.org), the default production adapter type, all of these being backed by RedHat.  The `lein immutant war` here for this reason hasn't been deployed successfully yet.  At the time of this writing the platform is still in preview mode with that has to be renewed each month, as accounts are forced to expire.  It'd be great to eventially verify it working.
+[OpenShift Origin](https://www.openshift.org) is interesting for its [WildFly](http://wildfly.org) offering, which is especially well-suited for [Immutant](http://immutant.org), our default production adapter type, all of these being backed by RedHat.  The `lein immutant war` here for this reason hasn't been deployed successfully yet.  At the time of this writing the platform is still in preview mode with that has to be renewed each month, as accounts are forced to expire.  It'd be great to eventially verify it working.
 
 ## License
 
