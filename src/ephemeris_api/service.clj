@@ -32,7 +32,7 @@
           :description "For Astrology Applications"
           :version     (get cfg :ever)}
    :externalDocs {:description "Automatically deployed from the master branch on GitHub. Make it your own. Unlicensed Open Source. Follow the link for more info..."
-                  :url         "https://github.com/astrolin/ephemeris-api"}
+                  :url         "https://github.com/astrolin/ephemeris-api#ephemeris-api"}
    :basePath "/"}
   [[[(get cfg :base) ^:interceptors
             [api/error-responses

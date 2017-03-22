@@ -7,10 +7,10 @@
                  [io.pedestal/pedestal.service "0.5.2"]
                  [io.pedestal/pedestal.jetty "0.5.2"] ;; for dev
                  [io.pedestal/pedestal.immutant "0.5.2"] ;; for prod
-                 [ch.qos.logback/logback-classic "1.1.8" :exclusions [org.slf4j/slf4j-api]]
-                 [org.slf4j/jul-to-slf4j "1.7.22"]
-                 [org.slf4j/jcl-over-slf4j "1.7.22"]
-                 [org.slf4j/log4j-over-slf4j "1.7.22"]
+                 [ch.qos.logback/logback-classic "1.2.2" :exclusions [org.slf4j/slf4j-api]]
+                 [org.slf4j/jul-to-slf4j "1.7.25"]
+                 [org.slf4j/jcl-over-slf4j "1.7.25"]
+                 [org.slf4j/log4j-over-slf4j "1.7.25"]
                  [org.clojure/tools.logging "0.3.1"]
                  [jarohen/nomad "0.7.3"]
                  [environ "1.1.0"]]
@@ -24,9 +24,11 @@
            :jvm-opts ["-Dnomad.env=dev"]
            :dependencies [[ns-tracker "0.3.1"]
                           [proto-repl "0.3.1"]
+                          [martian-test "0.1.4"]
                           [midje "1.8.3"]
                           [midje-notifier "0.2.0"]]
            :plugins [[lein-midje "3.2"]
+                     [lein-ancient "0.6.10"]
                      [lein-immutant "2.1.0"]]
            :immutant {:nrepl-port 0
                       :nrepl-interface :management}

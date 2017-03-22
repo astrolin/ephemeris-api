@@ -14,6 +14,9 @@ Before you go on, keep in mind there isn’t much here yet.  The `ephemeris` tha
 
 ## Use
 
+Try a demo [api.astrolin.org](http://api.astrolin.org)/.
+It has got an automatically-generated, self-documenting ui.
+
 ### Development
 
 Java 8 and [Leiningen](https://leiningen.org) 2.4 or greater are prerequisites.
@@ -44,7 +47,7 @@ There are [nomad](https://github.com/jarohen/nomad) defaults pre-configured per 
 
 If you use both approaches together, e.g. `EPHEMERIS_API_PORT=8080 java -Dephemeris.api.port=8081 -jar target/server.jar`, then the second one wins and the port would be `8081`.  See [environ](https://github.com/weavejester/environ#readme)’s documentation for more info / possibilities.
 
-The following vars will be used if provided:
+The following vars, or their `java`-option equivalents, will be used if provided:
 
 * `EPHEMERIS_API_EVER` can make api version be different from `project.clj`'s
 * `EPHEMERIS_API_BASE` the path where the api is served, e.g. `/`
@@ -54,7 +57,8 @@ The following vars will be used if provided:
 
 ## Deploy
 
-There are many ways you can deploy the api...
+There are many ways one can deploy the api, to Cloud platforms being many.
+Here are some that have been tried, mostly for their convenience and free tier.
 
 ### Heroku
 
@@ -62,7 +66,18 @@ Host your own Ephemeris API server for **FREE** on [Heroku](https://heroku.com) 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/astrolin/ephemeris-api/tree/master)
 
-Already on Heroku at [ephemeris.herokuapp.com](https://ephemeris.herokuapp.com) with a free instance that's only good for demo purposes.
+Already on Heroku at [ephemeris.herokuapp.com](https://ephemeris.herokuapp.com) with a free instance -
+that is automatically deployed from the `active` branch and used for tesing.
+It could be broken on occasion, as *work in progress*.
+
+### Bluemix
+
+[IBM Bluemix](https://www.ibm.com/cloud-computing/bluemix) also offers 512 MB for FREE, except that your app won't fall aseep due to inactivity.
+You may need a slightly different [manifest](https://github.com/astrolin/ephemeris-api/blob/active/manifest.yml).
+
+### OpenShift
+
+[OpenShift Origin](https://www.openshift.org) is interesting for its [WildFly](http://wildfly.org) offering, which is especially well-suited for [Immutant](http://immutant.org), our default production adapter type, all of these being backed by RedHat.  The `lein immutant war` here for this reason hasn't been deployed successfully yet.  At the time of this writing the platform is still in preview mode with that has to be renewed each month, as accounts are forced to expire.  It'd be great to eventially verify it working.
 
 ## License
 

@@ -1,6 +1,6 @@
 FROM java:8
 
-ADD target/uberjar/server.jar /srv/ephemeris-api.jar
+ADD target/server.jar /srv/ephemeris-api.jar
 
 EXPOSE 8080
 

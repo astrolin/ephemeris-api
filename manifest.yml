@@ -1,0 +1,7 @@
+applications:
+   - name: ephemeris
+     host: ephemeris
+     buildpack: https://github.com/heroku/heroku-buildpack-clojure
+     disk_quota: 500M # 1G default
+     memory: 512M
+     instances: 1
