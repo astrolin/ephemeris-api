@@ -70,7 +70,7 @@ Already on Heroku at [ephemeris.herokuapp.com](https://ephemeris.herokuapp.com) 
 
 ### Bluemix
 
-[IBM Bluemix](https://www.ibm.com/cloud-computing/bluemix) also offers 512 MB for free, except that your app won't fall aseep due to inactivity.
+[IBM Bluemix](https://www.ibm.com/cloud-computing/bluemix) also offers 512 MB for FREE, except that your app won't fall aseep due to inactivity.
 You may need a slightly different [manifest](https://github.com/astrolin/ephemeris-api/blob/active/manifest.yml).
 
 ### OpenShift
