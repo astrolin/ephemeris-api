@@ -1,9 +1,7 @@
 applications:
    - name: ephemeris
      host: ephemeris
-     path: target/ephemeris-api.war
+     buildpack: https://github.com/heroku/heroku-buildpack-clojure
      disk_quota: 500M # 1G default
      memory: 512M
      instances: 1
-     env:
-       EPHEMERIS_API_BASE: /
