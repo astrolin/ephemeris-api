@@ -10,11 +10,7 @@ test:
     - cf target -o Astrolin -s ephemeris
     - cf a
 deployment:
-  stage:
-    branch: active
-    heroku:
-      appname: ephemeris
   prod:
-    branch: active
+    branch: master
     commands:
       - cf push

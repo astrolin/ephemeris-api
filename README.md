@@ -66,7 +66,9 @@ Host your own Ephemeris API server for **FREE** on [Heroku](https://heroku.com) 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/astrolin/ephemeris-api/tree/master)
 
-Already on Heroku at [ephemeris.herokuapp.com](https://ephemeris.herokuapp.com) with a free instance that's only good for demo purposes.
+Already on Heroku at [ephemeris.herokuapp.com](https://ephemeris.herokuapp.com) with a free instance -
+that is automatically deployed from the `active` branch and used for tesing.
+It could be broken on occasion, as *work in progress*.
 
 ### Bluemix
 
