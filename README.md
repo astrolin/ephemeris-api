@@ -2,11 +2,21 @@
 
 > Ephemeris HTTP API
 
-This `ephemeris-api` provides [ephemeris](https://github.com/astrolet/ephemeris) functionality, over the HTTP protocol, as a web service.  It is powered by [Pedestal](http://pedestal.io), including adaptors for [Jetty](http://www.eclipse.org/jetty) and [Immutant](http://immutant.org).  Pedestal enables a "huge variety" of deployment possibilities, not all of which enabled or documented here.  Thanks also go to [pedestal-api](https://github.com/oliyh/pedestal-api) for making it simple and easy.
+This `ephemeris-api` provides [ephemeris](https://github.com/astrolet/ephemeris) functionality, over the HTTP protocol, as a web service.  It is powered by [Pedestal](http://pedestal.io), including adaptors for [Jetty](http://www.eclipse.org/jetty) and [Immutant](http://immutant.org).  Pedestal opens up a "huge variety" of deployment possibilities, not all of which enabled or documented here.  Thanks also go to [pedestal-api](https://github.com/oliyh/pedestal-api) for making it simple and easy.
 
 ## Rationale
 
-For the purpose of decoupling astrology applications from ephemeris code.  Therefore one is free to implement an application in any programming language and using a data format of their choice.  There is also the possibility of including and exposing alternative ephemeris implementations with the same interface.  Client applications would simply connect to an API instance configured to serve the ephemeris they want to use / make available to their customers.  Application users with privacy or other concerns (e.g. self-service of low connectivity environments wanting Internet-independent use through local area network, or a fully-offline desktop `localhost`), can easily provide the ephemeris for themselves and for free, as long as their application allows for such configuration of an ephemeris endpoint.
+For the purpose of decoupling astrology applications from ephemeris code.  Therefore one is free to implement an application in any programming language and using a data format of their choice.  There is also the possibility of including and exposing alternative ephemeris implementations with the same interface.  Client applications would simply connect to an api instance configured to serve the ephemeris they want to use / make available to their customers.  Application users with privacy or other concerns (e.g. self-service of low connectivity environments wanting Internet-independent use through local area network, or a fully-offline desktop `localhost`), can easily provide the ephemeris for themselves and for free, as long as their application allows for such configuration of an ephemeris endpoint.
+
+The best or most popular astrology software is generally behind the times with regards to rapid tech industry change in a post-desktop world.  The barrier to entry appears high, costly, even intimidating.  Programming astrology is complicated enough.  An ephemeris should make it easier rather than harder to attract a new generation of hackers, keeping astrology enthusiasm alive.  An ephemeris interface (i.e. its api) should have a relatively small footprint.  Its purpose is to convert one kind of data, i.e. time and place — into another, e.g. positions of planets, stars, a few key points on the ecliptic, and *"testimonies"* come to mind.  A simple non-side-effecting single-purpose transformation function.  Pretty much everything else necessary for the practice of, at least traditional, natal astrology can be derived from this functional ephemeris data by external or third party code libraries.  An ephemeris that aims to do nothing more than the absolute bare minimum is easy to improve or replace.  The same applies to libraries that would transform this data further, into something fit for the practice of astrology, such as a graphical user interface.  Scripted rather than compiled languages can be used for lightweight development.  Poor determined hackers with weak computers can be efficient, successful astrology programmers too.  This almost levels the playing field.
+
+We live in a grey world.  Commercial vs GPL licensing is too black-and-white for a healthy and thriving astrology software ecosystem.  Permissive licenses such as MIT are the popular trend for a reason.  The public domain is on the rise.  People should be free to choose Open Source other than strict copyleft GPL.  The [Unlicense](http://unlicense.org) this organization adopts for its code - takes a strong and clear stance.
+
+By serving the ephemeris api over network protocols and keeping it minimal, we open possibilities for an alternate future of astrology apps.  Any ephemeris-dependent software can ship without an ephemeris and work with any other ephemeris that conforms to a common interface spec.  Ephemeris would be a utility that people can choose to self-provide in the Cloud, on a LAN, or any network with [ZeroTier](https://www.zerotier.com).  That would lower the cost for end-users and app developers alike.  Apps would be leaner and cheaper.  Micro-apps that do very little and are almost free become viable.  Their authors could put such apps on the market without having to afford an ephemeris license, nor the hosting cost of an ephemeris-api, and thus not loose any money if an app fails to summon interest in people.  Even developers from "Third World" countries could compete globally.  If an app does well, it may eventually get an upgrade, perhaps with a more expensive ephemeris-including version.  This is a kind of crowdfunding without asking people for funds in advance.
+
+Furthermore, commercial apps would outlive their authors’ ability to renew their ephemeris license and stick around for the benefit of astrologers even if an ephemeris license is revoked or a specific ephemeris-api service ceases to exist.  Overall, this should pave the way for better astrology software in the small and at large.  Competition wouldn’t have to be monolithic nor “reinventing the wheel” once again.
+
+Remember this is just sharing thoughts about possibilities.  Check for yourself and with a lawyer that whatever course you take and choices you make are all legal.
 
 ## Caution
 
@@ -19,7 +29,7 @@ It has got an automatically-generated, self-documenting ui.
 
 ### Development
 
-Java 8 and [Leiningen](https://leiningen.org) 2.4 or greater are prerequisites.
+Java 1.8 and [Leiningen](https://leiningen.org) 2.4 or greater are prerequisites.
 
 Start `lein repl`, load the `dev` namespace, and call `-main`.
 Source code will be auto-reloaded upon changes for easier dev,
@@ -66,7 +76,9 @@ Host your own Ephemeris API server for **FREE** on [Heroku](https://heroku.com) 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/astrolin/ephemeris-api/tree/master)
 
-Already on Heroku at [ephemeris.herokuapp.com](https://ephemeris.herokuapp.com) with a free instance that's only good for demo purposes.
+Already on Heroku at [ephemeris.herokuapp.com](https://ephemeris.herokuapp.com) with a free instance -
+that is automatically deployed from the `active` branch and used for testing as [test.astrolin.org](http://test.astrolin.org).
+It could be broken on occasion, as *work in progress*.
 
 ### Bluemix
 

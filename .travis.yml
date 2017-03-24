@@ -1,0 +1,19 @@
+language: clojure
+jdk:
+- oraclejdk8
+branches:
+  except:
+  - test # reserved to auto-deploy & run tests against
+  - master # deployed with circle-ci for now
+notifications:
+  email:
+    recipients:
+      - open@astrolin.org
+    on_success: change
+    on_failure: always
+deploy:
+  provider: heroku
+  on: active
+  app: ephemeris
+  api_key:
+    secure: qcpqs3CfaIUXY+FZ4sN5y/bRZV3Gk8qMHLcYxkKdG8UUDG1rxSivISefotTaMPvzYxyt6NLf0iLde9P6mlkjEJBJ1sjJRa3l9Yb7p0lXidyaM3yWoMgEo9diHWpDNC93rPBTXABDpZj0sqF3pbPDWOUXcFF/rELOTqiDi9T9jPO9orT6oXdzSTmX3y9Kq7UfobqEhUhV69+n+wkaIoBRRLyoridOMpYGrszZiA/PLro5lOODw1oLiPZTvg3QD9IEU7Gn4uLyKf4cl55Rw3MT6TEUDjxQC0AxdpTm+ad0a+Gntiact110lCNUnlwapB/PivJteLgjoBxZMctkZZ1LORg4z1k/L8t7EFDleDnWRlwbbAYB7Fn4VH4rDpG6ooAsDu5RYJNPsIggiX5ZoDyD4s93wYbIRZc+mpYZeKCdIINtZbHPFG0RCHcWZGRI3wNg7raH1SG7PrQRczhUIvPPaEBMNE0SNoe0aLvQlTZOAhJqbvgDRfb3yzHJbrN6jjAliWlSRimF7S8m9g08i+gCIhkfC2tldLNpR/9WfVHpfrFg2InYuf7eyxhXNanPLCPTpnntfgrjTIrPyZoV4SKEsjzGOpYjuienLCPiZbHcbgTN+6GbpWHCjDlxUEr2eg3WAi+M6XCz4+n71Xv2fEMUVGTgteiR3WLwLWXbLv+hMtI=
