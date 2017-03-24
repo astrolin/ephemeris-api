@@ -20,6 +20,7 @@
   (handler
    ::mundane
    {:summary   "Get the current mundane planetary positions."
+    :parameters {}
     :responses {200 {:body Points}}}
    (fn [request]
      {:status 200
@@ -27,24 +28,24 @@
                    :houses false
                    :meta false})})))
 
-;; (s/with-fn-validation ;; Optional, but nice to have at compile time
-(api/defroutes routes
-  {:info {:title       "Ephemeris API"
-          :description "For Astrology Applications"
-          :version     (get cfg :ever)}
-   :externalDocs {:description "Automatically deployed from the master branch on GitHub. Make it your own. Unlicensed Open Source. Follow the link for more info..."
-                  :url         "https://github.com/astrolin/ephemeris-api#ephemeris-api"}
-   :basePath "/"}
-  [[[(get cfg :base) ^:interceptors
-            [api/error-responses
-             (api/negotiate-response)
-             (api/body-params)
-             api/common-body
-             (api/coerce-request)
-             (api/validate-response)]
-      ["/now" {:get mundane}]
-      ["/swagger.json" {:get [api/swagger-json]}]
-      ["/*resource" {:get [api/swagger-ui]}]]]])
+(s/with-fn-validation ;; Optional, though nice to have at compile time
+  (api/defroutes routes
+    {:info {:title       "Ephemeris API"
+            :description "For Astrology Applications"
+            :version     (get cfg :ever)}
+     :externalDocs {:description "Automatically deployed from the master branch on GitHub. Make it your own. Unlicensed Open Source. Follow the link for more info..."
+                    :url         "https://github.com/astrolin/ephemeris-api#ephemeris-api"}
+     :basePath "/"}
+    [[[(get cfg :base) ^:interceptors
+              [api/error-responses
+               (api/negotiate-response)
+               (api/body-params)
+               api/common-body
+               (api/coerce-request)
+               (api/validate-response)]
+        ["/now" {:get mundane}]
+        ["/swagger.json" {:get [api/swagger-json]}]
+        ["/*resource" {:get [api/swagger-ui]}]]]]))
 
 (def service
   {:env :prod
