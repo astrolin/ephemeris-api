@@ -5,6 +5,12 @@ branches:
   except:
   - test # reserved to auto-deploy & run tests against
   - master # deployed with circle-ci for now
+notifications:
+  email:
+    recipients:
+      - open@astrolin.org
+    on_success: change
+    on_failure: always
 deploy:
   provider: heroku
   on: active
