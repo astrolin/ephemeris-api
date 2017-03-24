@@ -29,7 +29,7 @@ It has got an automatically-generated, self-documenting ui.
 
 ### Development
 
-Java 8 and [Leiningen](https://leiningen.org) 2.4 or greater are prerequisites.
+Java 1.8 and [Leiningen](https://leiningen.org) 2.4 or greater are prerequisites.
 
 Start `lein repl`, load the `dev` namespace, and call `-main`.
 Source code will be auto-reloaded upon changes for easier dev,
@@ -77,7 +77,7 @@ Host your own Ephemeris API server for **FREE** on [Heroku](https://heroku.com) 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/astrolin/ephemeris-api/tree/master)
 
 Already on Heroku at [ephemeris.herokuapp.com](https://ephemeris.herokuapp.com) with a free instance -
-that is automatically deployed from the `active` branch and used for tesing.
+that is automatically deployed from the `active` branch and used for testing as [test.astrolin.org](http://test.astrolin.org).
 It could be broken on occasion, as *work in progress*.
 
 ### Bluemix
