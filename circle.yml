@@ -1,9 +1,6 @@
 general:
   branches:
     only:
-      - test
-      - /pr-*/
-      - active
       - master
 dependencies:
   pre:

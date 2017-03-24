@@ -1,0 +1,4 @@
+language: clojure
+branches:
+  except:
+  - master # tested & deployed with circle-ci
