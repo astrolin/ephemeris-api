@@ -1,11 +1,13 @@
 (ns ephemeris-api.service
   (:require [io.pedestal.http :as bootstrap]
+            [io.pedestal.http.route.definition :refer [defroutes]]
+            [io.pedestal.interceptor.helpers :refer [handler]]
             [io.pedestal.interceptor :refer [interceptor]]
             [ring.util.response :refer [response not-found created resource-response content-type status redirect]]
             [schema.core :as s]
             [pedestal-api
              [core :as api]
-             [helpers :refer [defhandler handler]]]
+             [helpers :refer [defhandler]]]
             [ephemeris-api.config :refer [config]]
             [ephemeris.core :refer (calc)]))
 
@@ -16,20 +18,18 @@
                        :lat s/Num
                        :sdd s/Num}}})
 
-(def mundane
-  (handler
-   ::mundane
-   {:summary   "Get the current mundane planetary positions."
-    :parameters {}
-    :responses {200 {:body Points}}}
-   (fn [request]
-     {:status 200
-      :body (calc {:angles []
-                   :houses false
-                   :meta false})})))
+(defhandler mundane
+ {:summary   "Get the current mundane planetary positions."
+  :parameters {}
+  :responses {200 {:body Points}}}
+ [request]
+ {:status 200
+  :body (calc {:angles []
+               :houses false
+               :meta false})})
 
 (s/with-fn-validation ;; Optional, though nice to have at compile time
-  (api/defroutes routes
+  (api/defroutes api-routes
     {:info {:title       "Ephemeris API"
             :description "For Astrology Applications"
             :version     (get cfg :ever)}
@@ -46,6 +46,19 @@
         ["/now" {:get mundane}]
         ["/swagger.json" {:get [api/swagger-json]}]
         ["/*resource" {:get [api/swagger-ui]}]]]]))
+
+(def home
+  (handler
+   ::home-handler
+   (fn [request]
+    (-> (response "Home of Ephemeris API")
+     (content-type "text/html")))))
+
+(defroutes app-routes
+  [[["/*route" {:get home}]]])
+
+(def routes
+  (concat api-routes app-routes))
 
 (def service
   {:env :prod
