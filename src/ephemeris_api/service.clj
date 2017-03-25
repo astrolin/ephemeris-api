@@ -4,6 +4,7 @@
             [io.pedestal.interceptor.helpers :refer [handler]]
             [io.pedestal.interceptor :refer [interceptor]]
             [ring.util.response :refer [response not-found created resource-response content-type status redirect]]
+            [net.cgrand.enlive-html :as html]
             [schema.core :as s]
             [pedestal-api
              [core :as api]
@@ -47,12 +48,14 @@
         ["/swagger.json" {:get [api/swagger-json]}]
         ["/*resource" {:get [api/swagger-ui]}]]]]))
 
+(html/deftemplate home-page "pages/index.html" [data])
+
 (def home
   (handler
    ::home-handler
    (fn [request]
-    (-> (response "Home of Ephemeris API")
-     (content-type "text/html")))))
+    (-> (response (reduce str (home-page {})))
+        (content-type "text/html")))))
 
 (defroutes app-routes
   [[["/*route" {:get home}]]])

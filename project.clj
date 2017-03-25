@@ -13,7 +13,8 @@
                  [org.slf4j/log4j-over-slf4j "1.7.25"]
                  [org.clojure/tools.logging "0.3.1"]
                  [jarohen/nomad "0.7.3"]
-                 [environ "1.1.0"]]
+                 [environ "1.1.0"]
+                 [enlive "1.1.6"]]
   :plugins [[lein-environ "1.1.0"]]
   :env {:ever :project/version ;; ephemeris-api v[ersion]
         :base "/api"}
