@@ -3,7 +3,8 @@
   :min-lein-version  "2.4.0" ;; due to lein-immutant
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ephemeris "0.0.1"]
-                 [pedestal-api "0.3.1"]
+                 [prismatic/schema "1.1.4"]
+                 [pedestal-api "0.3.1" :exclusions [prismatic/schema]]
                  [io.pedestal/pedestal.service "0.5.2"]
                  [io.pedestal/pedestal.jetty "0.5.2"] ;; for dev
                  [io.pedestal/pedestal.immutant "0.5.2"] ;; for prod
