@@ -15,10 +15,10 @@
                  [org.clojure/tools.logging "0.3.1"]
                  [jarohen/nomad "0.7.3"]
                  [environ "1.1.0"]
-                 [enlive "1.1.6"]]
+                 [stencil "0.5.0"]]
   :plugins [[lein-environ "1.1.0"]]
   :env {:ever :project/version ;; ephemeris-api v[ersion]
-        :base "/api"}
+        :base "/api/"} ;; keep the trailing /
   :source-paths ["src"]
   :resource-paths ["resources"]
   :profiles

@@ -4,7 +4,7 @@
             [io.pedestal.interceptor.helpers :refer [handler]]
             [io.pedestal.interceptor :refer [interceptor]]
             [ring.util.response :refer [response not-found created resource-response content-type status redirect]]
-            [net.cgrand.enlive-html :as html]
+            [stencil.core :refer [render-file]]
             [schema.core :as s]
             [pedestal-api
              [core :as api]
@@ -13,6 +13,7 @@
             [ephemeris.core :refer (calc)]))
 
 (def cfg (config))
+(stencil.loader/set-cache (clojure.core.cache/ttl-cache-factory {} :ttl 0))
 
 (s/defschema Points
   {:points {s/Keyword {:lon s/Num
@@ -48,13 +49,11 @@
         ["/swagger.json" {:get [api/swagger-json]}]
         ["/*resource" {:get [api/swagger-ui]}]]]]))
 
-(html/deftemplate home-page "pages/index.html" [data])
-
 (def home
   (handler
    ::home-handler
    (fn [request]
-    (-> (response (reduce str (home-page {})))
+    (-> (response (render-file "pages/index.html" {:base (get cfg :base)}))
         (content-type "text/html")))))
 
 (defroutes app-routes
