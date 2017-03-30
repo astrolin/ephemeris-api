@@ -32,6 +32,7 @@
            :plugins [[lein-midje "3.2"]
                      [lein-ancient "0.6.10"]
                      [lein-immutant "2.1.0"]]
+           :sass {:source "resources/sass" :target "resources/public/css"}
            :immutant {:nrepl-port 0
                       :nrepl-interface :management}
            :repl-options {:timeout 150000 ;; 2 & 1/2 minutes

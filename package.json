@@ -1,0 +1,18 @@
+{
+  "name": "ephemeris-api",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=6.9.x"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
+    "normalize-scss": "^6.0.0"
+  },
+  "scripts": {
+    "build-css": "node-sass --include-path node_modules/normalize-scss/sass --include-path resources/styles resources/styles/main.scss resources/public/css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  }
+}
