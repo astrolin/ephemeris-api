@@ -55,9 +55,9 @@ There are [nomad](https://github.com/jarohen/nomad) defaults pre-configured per 
 - `  EPHEMERIS_API_PORT=8080 java -jar target/server.jar`
 - `java -Dephemeris.api.port=8080 -jar target/server.jar`
 
-If you use both approaches together, e.g. `EPHEMERIS_API_PORT=8080 java -Dephemeris.api.port=8081 -jar target/server.jar`, then the second one wins and the port would be `8081`.  See [environ](https://github.com/weavejester/environ#readme)’s documentation for more info / possibilities.
+If you use both approaches together, e.g. `EPHEMERIS_API_PORT=8080 java -Dephemeris.api.port=8081 -jar target/server.jar`, then the second one wins and the port would be `8081`.
 
-The following vars, or their `java`-option equivalents, will be used if provided:
+See [environ](https://github.com/weavejester/environ#readme)’s documentation for more info / possibilities.  The following vars, or their `java`-option equivalents, will be used if provided:
 
 * `EPHEMERIS_API_EVER` can make api version be different from `project.clj`'s
 * `EPHEMERIS_API_BASE` the path where the api is served, e.g. `/`
