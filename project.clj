@@ -35,7 +35,7 @@
            :sass {:source "resources/sass" :target "resources/public/css"}
            :immutant {:nrepl-port 0
                       :nrepl-interface :management}
-           :repl-options {:timeout 150000 ;; 2 & 1/2 minutes
+           :repl-options {:timeout 300000 ;; 5 minutes
                           :init-ns dev}}
      :repl
        {:ultra {:repl {:sort-keys false
