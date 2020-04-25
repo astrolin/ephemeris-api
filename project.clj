@@ -30,7 +30,7 @@
                           [martian-test "0.1.11"]
                           [midje "1.9.9"]
                           [midje-notifier "0.3.0"]]
-           :plugins [[lein-midje "3.2"]
+           :plugins [[lein-midje "3.2.2"]
                      [lein-ancient "0.6.15"]
                      [lein-immutant "2.1.0"]]
            :sass {:source "resources/sass" :target "resources/public/css"}
