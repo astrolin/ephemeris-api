@@ -29,7 +29,7 @@ It has got an automatically-generated, self-documenting ui.
 
 ### Development
 
-Java 1.8 and [Leiningen](https://leiningen.org) 2.4 or greater are prerequisites.
+[OpenJDK](https://adoptopenjdk.net/?variant=openjdk11&jvmVariant=hotspot) `11` and [Leiningen](https://leiningen.org) `2.4` or greater are prerequisites.
 
 Start `lein repl`, load the `dev` namespace, and call `-main`.
 Source code will be auto-reloaded upon changes for easier dev,
