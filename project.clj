@@ -21,16 +21,17 @@
         :base "/api/"} ;; keep the trailing /
   :source-paths ["src"]
   :resource-paths ["resources"]
+  :global-vars {*warn-on-reflection* false}
   :profiles
     {:dev {:source-paths ["dev" "src"]
-           :jvm-opts ["-Dnomad.env=dev"]
+           :jvm-opts ["-Dnomad.env=dev" "--illegal-access=debug"]
            :dependencies [[ns-tracker "0.3.1"]
                           [proto-repl "0.3.1"]
                           [martian-test "0.1.4"]
                           [midje "1.8.3"]
                           [midje-notifier "0.2.0"]]
            :plugins [[lein-midje "3.2"]
-                     [lein-ancient "0.6.10"]
+                     [lein-ancient "0.6.15"]
                      [lein-immutant "2.1.0"]]
            :sass {:source "resources/sass" :target "resources/public/css"}
            :immutant {:nrepl-port 0
