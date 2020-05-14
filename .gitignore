@@ -9,20 +9,18 @@
 pom.xml*
 *.jar
 /lib/
+/out/
 /target/
 /classes/
 /checkouts/
 
-.lein-*
-.lein-env
-.lein-plugins
-.lein-deps-sum
-.lein-failures
-.lein-repl-history
+# Leiningen
+/.lein-*
+/.nrepl-*
 
-.nrepl-*
-.nrepl-port
-.nrepl-history
+# clj-kondo
+/.clj-kondo/.cache
 
+# Node.js
 node_modules/
 npm-debug.log*
